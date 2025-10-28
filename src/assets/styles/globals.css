@@ -1,0 +1,211 @@
+/* ==========================================================================
+   Mini utilidades CSS (shim) para tu landing SIN Tailwind
+   Cubre solo las clases que ya usas en tus componentes.
+   Fuentes
+========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&family=Poppins:wght@600&display=swap");
+
+/* Variables de color (las tuyas) */
+:root{
+  --font-size:16px;
+  --background:#ffffff;
+  --foreground:#1A1A1A;
+  --card:#ffffff;
+  --card-foreground:#1A1A1A;
+  --primary:#E63946;
+  --accent:#2A9D8F;
+  --muted:#F8F9FA;
+  --border:rgba(0,0,0,.1);
+}
+
+/* Reset/BASE */
+*{box-sizing:border-box}
+html{font-size:var(--font-size);scroll-behavior:smooth}
+body{margin:0;background:#fff;color:#1A1A1A;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img,svg,video,canvas{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* ==========================================================================
+   Layout
+========================================================================== */
+.container{width:min(100% - 2rem, 1120px);margin-inline:auto}
+.mx-auto{margin-left:auto;margin-right:auto}
+.relative{position:relative}
+.absolute{position:absolute}
+.sticky{position:sticky}
+.top-0{top:0}
+.inset-0{inset:0}
+.-left-6{left:-1.5rem}
+.-bottom-6{bottom:-1.5rem}
+.z-10{z-index:10}
+.order-1{order:1}.order-2{order:2}
+
+/* Display / Flex / Grid */
+.grid{display:grid}
+.flex{display:flex}
+.items-center{align-items:center}
+.items-start{align-items:flex-start}
+.justify-between{justify-content:space-between}
+.justify-center{justify-content:center}
+.flex-col{flex-direction:column}
+.sm\:flex-row{flex-direction:column}
+@media (min-width:640px){.sm\:flex-row{flex-direction:row}}
+/* Columnas responsivas que usas */
+.lg\:grid-cols-2{grid-template-columns:1fr}
+@media (min-width:1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Anchos usados en Pricing cards */
+.w-full{width:100%}
+.lg\:w-1\/3{width:100%}
+@media (min-width:1024px){.lg\:w-1\/3{width:33.333%}}
+
+/* Gap / spacing (solo los que usas) */
+.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.gap-12{gap:3rem}
+.p-2{padding:.5rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}
+.px-4{padding-left:1rem;padding-right:1rem}
+.px-6{padding-left:1.5rem;padding-right:1.5rem}
+.px-8{padding-left:2rem;padding-right:2rem}
+.py-12{padding-block:3rem}.py-16{padding-block:4rem}.py-20{padding-block:5rem}.py-28{padding-block:7rem}
+.pt-24{padding-top:6rem}.pb-24{padding-bottom:6rem}
+.md\:pt-32{padding-top:6rem}.md\:pb-32{padding-bottom:6rem}
+@media (min-width:768px){.md\:pt-32{padding-top:8rem}.md\:pb-32{padding-bottom:8rem}}
+.mt-8{margin-top:2rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mb-16{margin-bottom:4rem}
+.-my-4{margin-top:-1rem;margin-bottom:-1rem}
+
+/* Tipografía */
+.text-sm{font-size:.875rem;line-height:1.25rem}
+.text-lg{font-size:1.125rem;line-height:1.75rem}
+.text-xl{font-size:1.25rem;line-height:1.75rem}
+.text-2xl{font-size:1.5rem;line-height:2rem}
+.text-3xl{font-size:1.875rem;line-height:2.25rem}
+.text-4xl{font-size:2.25rem;line-height:2.5rem}
+.text-5xl{font-size:3rem;line-height:1}
+.font-semibold{font-weight:600}
+.font-bold{font-weight:700}
+
+/* Colores de texto frecuentes */
+.text-gray-300{color:#d1d5db}
+.text-gray-400{color:#9ca3af}
+.text-gray-500{color:#6b7280}
+.text-gray-600{color:#4b5563}
+.text-gray-700{color:#374151}
+.text-white{color:#fff}
+.text-white\/95{color:rgba(255,255,255,.95)}
+.text-white\/90{color:rgba(255,255,255,.90)}
+.text-white\/80{color:rgba(255,255,255,.80)}
+.text-white\/70{color:rgba(255,255,255,.70)}
+.text-white\/50{color:rgba(255,255,255,.50)}
+
+/* Colores de fondo que usas (incluye los con valor arbitrario) */
+.bg-white{background:#fff}
+.bg-white\/20{background:rgba(255,255,255,.2)}
+.bg-white\/10{background:rgba(255,255,255,.1)}
+.bg-white\/95{background:rgba(255,255,255,.95)}
+.bg-\[\#F8F9FA\]{background:#F8F9FA}
+.bg-\[\#1A1A1A\]{background:#1A1A1A}
+.bg-\[\#E63946\]{background:#E63946}
+.bg-\[\#2A9D8F\]{background:#2A9D8F}
+
+/* Gradientes usados en Hero y Final */
+.bg-gradient-to-br{background-image:linear-gradient(135deg,var(--tw-from),var(--tw-to))}
+.from-\[\#E63946\]{--tw-from:#E63946}
+.to-\[\#d42838\]{--tw-to:#d42838}
+/* Final CTA */
+.from-\[\#1A1A1A\]{--tw-from:#1A1A1A}
+.to-\[\#2a2a2a\]{--tw-to:#2a2a2a}
+
+/* Bordes, radios, sombras */
+.border{border:1px solid var(--border)}
+.border-2{border-width:2px}
+.border-b{border-bottom:1px solid var(--border)}
+.border-gray-100{border-color:#f3f4f6}
+.border-white\/10{border-color:rgba(255,255,255,.1)}
+.rounded-md{border-radius:.375rem}
+.rounded-lg{border-radius:.5rem}
+.rounded-xl{border-radius:.75rem}
+.rounded-2xl{border-radius:1rem}
+.shadow-lg{box-shadow:0 10px 20px rgba(0,0,0,.08)}
+.shadow-2xl{box-shadow:0 25px 50px rgba(0,0,0,.25)}
+
+/* Objetos/medidas */
+.object-contain{object-fit:contain}
+.object-cover{object-fit:cover}
+.aspect-\[4\/3\]{aspect-ratio:4 / 3}
+.w-auto{width:auto}
+.h-8{height:2rem}
+.h-10{height:2.5rem}
+.h-16{height:4rem}
+.h-5{height:1.25rem}.w-5{width:1.25rem}
+.h-4{height:1rem}.w-4{width:1rem}
+.h-7{height:1.75rem}.w-7{width:1.75rem}
+.w-10{width:2.5rem}
+.max-w-xs{max-width:20rem}
+.max-w-3xl{max-width:48rem}
+.max-w-4xl{max-width:56rem}
+.max-w-7xl{max-width:80rem}
+
+/* Utilidades varias usadas en el Header */
+.backdrop-blur{backdrop-filter:blur(8px)}
+.backdrop-blur-sm{backdrop-filter:blur(4px)}
+.hidden{display:none}
+.md\:hidden{display:block}
+.md\:inline-flex{display:none}
+@media (min-width:768px){
+  .md\:hidden{display:none}
+  .md\:inline-flex{display:inline-flex}
+  .md\:text-4xl{font-size:2.25rem;line-height:2.5rem}
+  .md\:text-5xl{font-size:3rem;line-height:1}
+  .md\:text-2xl{font-size:1.5rem;line-height:2rem}
+}
+
+/* Escalas/transform usadas */
+.lg\:scale-105{transform:none}
+@media (min-width:1024px){.lg\:scale-105{transform:scale(1.05)}}
+
+/* Utilidades de color de borde/texto extras */
+.text-\[\#1A1A1A\]{color:#1A1A1A}
+.text-\[\#F4A261\]{color:#F4A261}
+.bg-\[\#F4A261\]{background:#F4A261}
+
+/* Botones simples (para tu <Button/> ya renderizado) */
+button, .btn{
+  font-family:Poppins,system-ui,sans-serif;font-weight:600;
+  border-radius:.75rem; padding:.9rem 1.5rem; cursor:pointer;
+  border:1px solid transparent; transition:.2s ease-in-out
+}
+.btn-primary, .bg-\[\#E63946\].text-white{
+  background:#E63946;color:#fff
+}
+.btn-primary:hover, .bg-\[\#E63946\].text-white:hover{
+  background:#d42838
+}
+.btn-outline{
+  background:transparent;border:2px solid currentColor
+}
+
+/* Helpers de opacidad de fondo que usas en badges */
+.bg-\[\#F4A261\]\/10{background:rgba(244,162,97,.10)}
+.bg-\[\#E63946\]\/10{background:rgba(230,57,70,.10)}
+.bg-\[\#2A9D8F\]\/10{background:rgba(42,157,143,.10)}
+/* …y texto con opacidad */
+.text-\[\#F4A261\]{color:#F4A261}
+
+/* Cursor/otros */
+.pointer{cursor:pointer}
+/* --- Layout extra para Pricing en fila y footer en columnas --- */
+.items-stretch{align-items:stretch}
+.text-center{text-align:center}
+.max-w-xl{max-width:36rem}
+
+/* Flex dirección en desktop */
+.lg\:flex-row{flex-direction:column}
+@media (min-width:1024px){.lg\:flex-row{flex-direction:row}}
+
+/* Grid de 4 columnas en md+ (footer) */
+.md\:grid-cols-4{grid-template-columns:1fr}
+@media (min-width:768px){.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* Colores que usa el formulario */
+.bg-gray-50{background:#f9fafb}
+.bg-neutral-900{background:#171717}
+.bg-emerald-500{background:#10b981}
+.bg-emerald-500:hover{background:#059669} /* hover estilo simple */
