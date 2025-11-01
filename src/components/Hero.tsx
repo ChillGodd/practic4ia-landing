@@ -1,5 +1,5 @@
 import { Button } from "./button";
-import { MessageCircle } from "lucide-react";
+
 
 export function Hero() {
   return (
@@ -29,14 +29,9 @@ export function Hero() {
 
         {/* Botones alineados al centro */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button
-            size="lg"
-            className="bg-white text-[#E63946] hover:bg-gray-100 px-8 py-6 text-lg"
-            style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
-          >
-            <MessageCircle className="mr-2 h-5 w-5" />
-            Empieza por WhatsApp
-          </Button>
+          
+
+          
 
           {/* Lleva al formulario (#contacto) */}
          <a href="#contacto" onClick={(e) => {
