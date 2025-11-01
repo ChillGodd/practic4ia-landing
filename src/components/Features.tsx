@@ -29,7 +29,7 @@ const features = [
 
 export function Features() {
   return (
-    <section className="py-20 bg-white">
+    <section id="features" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl mb-4" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, color: '#1A1A1A' }}>

@@ -39,19 +39,19 @@ export function Hero() {
           </Button>
 
           {/* Lleva al formulario (#contacto) */}
-          <a href="#contacto">
-            <Button
-  size="lg"
-  variant="outline"
-  onClick={() =>
-    document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" })
-  }
-  className="px-8 py-6 text-lg" // opcional, no cambia colores
-  style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
->
-  Conoce más
-</Button>
-          </a>
+         <a href="#contacto" onClick={(e) => {
+  e.preventDefault();
+  document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
+}}>
+  <Button
+    size="lg"
+    variant="ghost"
+    className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg"
+    style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
+  >
+    Conoce más
+  </Button>
+</a>
         </div>
 
         {/* Nota inferior */}

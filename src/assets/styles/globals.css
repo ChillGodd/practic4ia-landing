@@ -209,3 +209,6 @@ button, .btn{
 .bg-neutral-900{background:#171717}
 .bg-emerald-500{background:#10b981}
 .bg-emerald-500:hover{background:#059669} /* hover estilo simple */
+html {
+  scroll-behavior: smooth;
+}

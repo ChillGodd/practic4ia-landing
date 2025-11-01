@@ -83,14 +83,13 @@ export function FinalCTA() {
                 Comienza gratis ahora
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg"
-                style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
-              >
-                Ver demo
-              </Button>
+             <Button
+  size="lg"
+  variant="ghost"
+  className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg"
+>
+  Ver demo
+</Button>
             </div>
           </div>
         </div>
