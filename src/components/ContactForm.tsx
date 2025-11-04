@@ -128,20 +128,7 @@ export default function ContactForm() {
             )}
           </div>
 
-          <div>
-            <textarea
-              name="mensaje"
-              rows={5}
-              placeholder="Mensaje"
-              required
-              className={`p-4 rounded-md border ${
-                errors.mensaje ? "border-red-500" : "border-gray-200"
-              } bg-white focus:outline-none focus:ring-2 focus:ring-rose-400 w-full`}
-            />
-            {errors.mensaje && (
-              <p className="text-red-500 text-sm mt-1">{errors.mensaje}</p>
-            )}
-          </div>
+          
 
           <button
             type="submit"

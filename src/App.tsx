@@ -19,7 +19,7 @@ export default function App() {
       <Problem />
       <Features />
       <Pricing />
-      <ContactForm />   {/* ← NUEVO */}
+      <ContactForm />   
       <FinalCTA />
       <Footer />
     </>

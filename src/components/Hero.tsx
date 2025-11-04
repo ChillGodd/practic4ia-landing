@@ -1,58 +1,126 @@
-import { Button } from "./button";
-
+"use client";
+import React, { useState } from "react";
 
 export function Hero() {
+  const [status, setStatus] = useState<string>("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const res = await fetch("https://formspree.io/f/mrboeryl", {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" },
+    });
+
+    if (res.ok) {
+      setStatus("✅ ¡Gracias! Te contactaremos pronto.");
+      form.reset();
+    } else {
+      setStatus("❌ Error al enviar. Inténtalo de nuevo.");
+    }
+  };
+
   return (
-    // ⬇️ Fondo rojo limpio, sin textura radial
-    <section className="relative bg-[#E63946] pt-24 pb-24 md:pt-28 md:pb-28">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center text-white">
-        {/* Badge (delgado, centrado) */}
-        <div className="inline-block mb-6 px-4 py-1 rounded-full bg-white/15">
-          <p className="text-xs sm:text-sm tracking-wide">
+    <section
+      id="inicio"
+      className="relative flex flex-col lg:flex-row items-center justify-between min-h-[90vh] overflow-hidden bg-white"
+    >
+      {/* Imagen lado izquierdo RESPONSIVE */}
+      <div className="relative w-full lg:w-1/2 h-[60vh] lg:h-auto">
+        <img
+          src="/hero-buyer.png"
+          alt="Joven estudiante mirando hacia la derecha con mochila"
+          className="
+            w-full h-full object-cover
+            object-[40%_center] sm:object-[35%_center] lg:object-[25%_center]
+          "
+        />
+        <div className="absolute inset-0 bg-black/45" />
+      </div>
+
+      {/* Contenido principal (texto + formulario) */}
+      <div className="relative z-10 w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center px-6 py-12">
+        {/* Texto */}
+        <div className="text-white lg:text-left text-center mb-10 max-w-lg">
+          <span className="inline-block mb-4 px-4 py-2 bg-white/20 backdrop-blur rounded-full text-sm">
             Tu asistente técnico personal con IA
+          </span>
+          <h1
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight"
+            style={{ fontFamily: "Montserrat, sans-serif" }}
+          >
+            ¿Abrumado por tus prácticas?
+          </h1>
+          <p
+            className="text-lg md:text-xl text-white/90"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
+            Entendemos tu estrés, tu curso y hasta lo que te pide tu jefe.
+            Recibe soluciones reales, no solo teoría.
           </p>
         </div>
 
-        {/* Título grande como la imagen 1 */}
-        <h1
-          className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6"
-          style={{ fontFamily: "Montserrat, sans-serif" }}
-        >
-          ¿Abrumado por tus prácticas?
-        </h1>
+        {/* Formulario */}
+        <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-2xl p-6 sm:p-8 border border-rose-200 w-full max-w-md mx-auto lg:mx-0">
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-2 text-[#1A1A1A]"
+            style={{ fontFamily: "Montserrat, sans-serif" }}
+          >
+            Regístrate para más información
+          </h2>
+          <p
+            className="text-gray-600 mb-6"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
+            Respuesta rápida. Sin tarjeta de crédito.
+          </p>
 
-        {/* Subtítulo en dos líneas */}
-        <p className="text-lg sm:text-xl md:text-2xl text-white/95 mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
-          <span className="block">Entendemos tu estrés, tu curso y hasta lo que te pide tu jefe.</span>
-          <span className="block">Recibe soluciones reales, no solo teoría.</span>
-        </p>
+          <form onSubmit={handleSubmit} className="grid gap-4 text-left">
+            <input
+              name="nombre"
+              placeholder="Nombre"
+              required
+              minLength={2}
+              className="p-4 rounded-md border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-rose-400"
+            />
+            <input
+              name="email"
+              type="email"
+              placeholder="Correo"
+              required
+              className="p-4 rounded-md border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-rose-400"
+            />
+            <input
+              name="celular"
+              type="tel"
+              placeholder="Celular (9 dígitos)"
+              required
+              pattern="^[0-9]{9}$"
+              title="Ingresa un número de 9 dígitos"
+              className="p-4 rounded-md border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-rose-400"
+            />
 
-        {/* Botones alineados al centro */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          
+            <button
+              type="submit"
+              className="bg-[#E63946] hover:bg-[#d42838] text-white p-4 rounded-md font-semibold"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
+              Enviar
+            </button>
+          </form>
 
-          
-
-          {/* Lleva al formulario (#contacto) */}
-         <a href="#contacto" onClick={(e) => {
-  e.preventDefault();
-  document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
-}}>
-  <Button
-    size="lg"
-    variant="ghost"
-    className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg"
-    style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
-  >
-    Conoce más
-  </Button>
-</a>
+          {status && (
+            <p
+              className="mt-4 text-sm"
+              style={{ fontFamily: "Inter, sans-serif" }}
+            >
+              {status}
+            </p>
+          )}
         </div>
-
-        {/* Nota inferior */}
-        <p className="mt-8 text-sm text-white/80">
-          Disponible 24/7 · Sin tarjeta de crédito para empezar
-        </p>
       </div>
     </section>
   );
