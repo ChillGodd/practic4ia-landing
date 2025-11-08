@@ -117,7 +117,7 @@ export default function ContactForm() {
             <input
               name="celular"
               type="tel"
-              placeholder="Celular (9 dígitos)"
+              placeholder="whatsapp (9 dígitos)"
               required
               className={`p-4 rounded-md border ${
                 errors.celular ? "border-red-500" : "border-gray-200"

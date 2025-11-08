@@ -45,17 +45,17 @@ export function Hero() {
       <div className="relative z-10 w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center px-6 py-12">
         {/* Texto */}
         <div className="text-white lg:text-left text-center mb-10 max-w-lg">
-          <span className="inline-block mb-4 px-4 py-2 bg-white/20 backdrop-blur rounded-full text-sm">
+    <span className="inline-block mb-4 px-4 py-2 bg-black/10 backdrop-blur rounded-full text-sm text-[#1A1A1A]">
             Tu asistente técnico personal con IA
           </span>
           <h1
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight"
-            style={{ fontFamily: "Montserrat, sans-serif" }}
+             className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight"
+             style={{ fontFamily: "Montserrat, sans-serif", color: "#1A1A1A" }}
           >
             ¿Abrumado por tus prácticas?
           </h1>
           <p
-            className="text-lg md:text-xl text-white/90"
+            className="inline-block mb-4 px-4 py-2 bg-black/10 backdrop-blur rounded-full text-sm text-[#1A1A1A]"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
             Entendemos tu estrés, tu curso y hasta lo que te pide tu jefe.
@@ -96,7 +96,7 @@ export function Hero() {
             <input
               name="celular"
               type="tel"
-              placeholder="Celular (9 dígitos)"
+              placeholder="whatsapp (9 dígitos)"
               required
               pattern="^[0-9]{9}$"
               title="Ingresa un número de 9 dígitos"
